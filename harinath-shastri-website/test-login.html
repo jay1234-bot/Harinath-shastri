@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Login - Harinath Shastri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            color: #ff7e00;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #ff7e00;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #e67200;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+    <script src="https://unpkg.com/@supabase/supabase-js@2.38.4/dist/umd/supabase.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Supabase Connection</h1>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password">
+        </div>
+        <button id="signupBtn">Sign Up</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Supabase initialization
+            const SUPABASE_URL = 'https://difwpejnqdmwopgkxzzq.supabase.co';
+            const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpZndwZWpucWRtd29wZ2t4enpxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDMzNDgwOTEsImV4cCI6MjA1ODkyNDA5MX0.aE_otzbxot5eOBZ3U8aZX16KH8knbxfpWEwN4MTly6Y';
+            
+            // Check if supabase is available
+            if (typeof supabase === 'undefined') {
+                document.getElementById('result').textContent = 'Supabase library not loaded correctly';
+                document.getElementById('result').className = 'error';
+                return;
+            }
+            
+            // Create Supabase client
+            const { createClient } = supabase;
+            const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+            
+            // Test connection
+            document.getElementById('result').textContent = 'Supabase loaded successfully!';
+            document.getElementById('result').className = 'success';
+            
+            // Sign up button
+            document.getElementById('signupBtn').addEventListener('click', async function() {
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                if (!email || !password) {
+                    document.getElementById('result').textContent = 'Please enter both email and password';
+                    document.getElementById('result').className = 'error';
+                    return;
+                }
+                
+                try {
+                    const { data, error } = await supabaseClient.auth.signUp({
+                        email: email,
+                        password: password
+                    });
+                    
+                    if (error) {
+                        throw error;
+                    }
+                    
+                    document.getElementById('result').textContent = 'Signup successful! Check your email for verification.';
+                    document.getElementById('result').className = 'success';
+                    
+                    // Store user in profiles table
+                    const { error: profileError } = await supabaseClient
+                        .from('profiles')
+                        .insert([
+                            { 
+                                id: data.user.id,
+                                email: email,
+                                created_at: new Date()
+                            }
+                        ]);
+                    
+                    if (profileError) {
+                        console.error('Error storing profile:', profileError);
+                    }
+                    
+                } catch (error) {
+                    document.getElementById('result').textContent = 'Error: ' + error.message;
+                    document.getElementById('result').className = 'error';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harinath Shastri - Vedic Astrologer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <link rel="icon" type="image/png" href="https://png.pngtree.com/png-clipart/20210929/ourmid/pngtree-astrology-abstract-pattern-gold-astrolabe-png-image_3962767.png">
+    <!-- Favicon will be added later -->
+</head>
+<body>
+    <!-- Background Particles -->
+    <div class="bg-particle"></div>
+    <div class="bg-particle"></div>
+    <div class="bg-particle"></div>
+    <div class="bg-particle"></div>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <a href="#home">
+                    <div class="logo-circle">
+                        <img src="https://png.pngtree.com/png-clipart/20210929/ourmid/pngtree-astrology-abstract-pattern-gold-astrolabe-png-image_3962767.png" alt="Harinath Shastri Logo" class="logo-img">
+                    </div>
+                    <div class="logo-text">
+                        <h1>Harinath Shastri</h1>
+                        <p>Vedic Astrologer</p>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <!-- User profile or auth buttons -->
+            <div class="auth-buttons" id="authButtons">
+                <a href="login.html" class="auth-btn login-btn">
+                    <span class="neon-border"></span>
+                    <span class="btn-content">LOG IN</span>
+                </a>
+                <a href="login.html?signup=true" class="auth-btn signup-btn">
+                    <span class="neon-border"></span>
+                    <span class="btn-content">SIGN UP</span>
+                </a>
+            </div>
+            <!-- User profile when logged in (hidden by default) -->
+            <div class="user-profile" id="userProfile" style="display: none;">
+                <span class="username" id="usernameDisplay">User</span>
+                <div class="dropdown-menu">
+                    <a href="#" id="logoutBtn">Logout</a>
+                    <a href="#" id="profileBtn">Profile</a>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content animate__animated animate__fadeIn">
+            <h1>Harinath Shastri</h1>
+            <h2>Vedic Astrologer & Spiritual Guide</h2>
+            <p>Guiding you through life's journey with ancient wisdom and spiritual practices</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn primary-btn">Explore Services</a>
+                <a href="#contact" class="btn secondary-btn">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="section-header">
+            <h2 class="animate__animated animate__fadeInUp">Our Services</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="services-container">
+            <div class="service-card animate__animated animate__fadeInUp">
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Grih Pravesh</h3>
+                <p>Traditional house warming ceremony to bring prosperity and positive energy to your new home.</p>
+            </div>
+            <div class="service-card animate__animated animate__fadeInUp" data-delay="0.2s">
+                <div class="service-icon">
+                    <i class="fas fa-pray"></i>
+                </div>
+                <h3>Satyanarayan Puja</h3>
+                <p>Sacred ritual dedicated to Lord Vishnu to bring peace, prosperity and happiness to your family.</p>
+            </div>
+            <div class="service-card animate__animated animate__fadeInUp" data-delay="0.4s">
+                <div class="service-icon">
+                    <i class="fas fa-ring"></i>
+                </div>
+                <h3>Wedding Ceremonies</h3>
+                <p>Complete Vedic wedding rituals performed with traditional mantras and customs.</p>
+            </div>
+            <div class="service-card animate__animated animate__fadeInUp" data-delay="0.6s">
+                <div class="service-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>Astrological Consultation</h3>
+                <p>Personalized horoscope analysis and guidance for important life decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-header">
+            <h2 class="animate__animated animate__fadeInUp">About Harinath Shastri</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="about-container">
+            <div class="about-image animate__animated animate__fadeInLeft">
+                <img src="https://png.pngtree.com/png-clipart/20210929/ourmid/pngtree-astrology-abstract-pattern-gold-astrolabe-png-image_3962767.png" alt="Harinath Shastri">
+            </div>
+            <div class="about-content animate__animated animate__fadeInRight">
+                <h3>Vedic Astrologer & Spiritual Guide</h3>
+                <p>Harinath Shastri is a renowned Vedic Astrologer with over 25 years of experience in the field of astrology and spirituality. Born into a family of traditional astrologers, he has deep knowledge of ancient Vedic texts and modern astrological techniques.</p>
+                <p>He has helped thousands of people across the globe find clarity, purpose, and direction in their lives through his accurate predictions and spiritual guidance.</p>
+                <p>Harinath Shastri specializes in various aspects of Vedic Astrology including:</p>
+                <ul class="about-list">
+                    <li><i class="fas fa-star"></i> Birth Chart Analysis</li>
+                    <li><i class="fas fa-star"></i> Marriage Compatibility</li>
+                    <li><i class="fas fa-star"></i> Career Guidance</li>
+                    <li><i class="fas fa-star"></i> Remedial Measures</li>
+                    <li><i class="fas fa-star"></i> Muhurta (Auspicious Timing)</li>
+                </ul>
+                <a href="#contact" class="btn primary-btn">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <h2 class="animate__animated animate__fadeInUp">What People Say</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="testimonials-container">
+            <div class="testimonial-card animate__animated animate__fadeInUp">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p class="testimonial-text">The Grih Pravesh ceremony performed by Harinath Shastri Ji was so peaceful and authentic. We feel blessed to have our new home purified by such a knowledgeable pandit.</p>
+                <div class="testimonial-author">
+                    <h4>Rajesh Kumar</h4>
+                    <p>Delhi</p>
+                </div>
+            </div>
+            <div class="testimonial-card animate__animated animate__fadeInUp" data-delay="0.2s">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p class="testimonial-text">Our wedding ceremony was conducted beautifully by Harinath Ji. His knowledge of rituals and clear explanation of their significance made our special day even more meaningful.</p>
+                <div class="testimonial-author">
+                    <h4>Priya & Amit</h4>
+                    <p>Mumbai</p>
+                </div>
+            </div>
+            <div class="testimonial-card animate__animated animate__fadeInUp" data-delay="0.4s">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p class="testimonial-text">The astrological guidance provided by Harinath Shastri Ji has been life-changing. His predictions were accurate and the remedies he suggested have brought positive changes in my life.</p>
+                <div class="testimonial-author">
+                    <h4>Sunita Sharma</h4>
+                    <p>Jaipur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <h2 class="animate__animated animate__fadeInUp">Contact Me</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info animate__animated animate__fadeInLeft">
+                <div class="info-item">
+                    <div class="icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>+91 98234 21134</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>info@harinathshastri.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>123 Spiritual Lane, Vedic Nagar, India</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-cta animate__animated animate__fadeInRight">
+                <div class="cta-content">
+                    <h3>Get Personalized Astrological Guidance</h3>
+                    <p>Click the button below to fill out our detailed consultation form.</p>
+                    <button id="contactRedirectBtn" class="btn neon-cta-button">
+                        <span class="btn-text">Click Here</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h3>Harinath Shastri</h3>
+                <p>Vedic Astrologer & Spiritual Guide</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> +91 98234 21134</p>
+                <p><i class="fas fa-envelope"></i> info@harinathshastri.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Harinath Shastri. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Notification -->
+    <div class="privacy-notification" id="privacyNotification">
+        <p>This website uses cookies to ensure you get the best experience on our website.</p>
+        <div class="privacy-buttons">
+            <button class="btn accept-btn" id="acceptPrivacy">Accept</button>
+            <a href="privacy-policy.html" class="btn policy-btn">Privacy Policy</a>
+        </div>
+    </div>
+
+    <!-- Auth Check Script -->
+    <script>
+        // Supabase configuration
+        const SUPABASE_URL = 'https://difwpejnqdmwopgkxzzq.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpZndwZWpucWRtd29wZ2t4enpxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDMzNDgwOTEsImV4cCI6MjA1ODkyNDA5MX0.aE_otzbxot5eOBZ3U8aZX16KH8knbxfpWEwN4MTly6Y';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Check if user is logged in and update UI accordingly
+            updateUIBasedOnAuth();
+            
+            // Privacy notification handling
+            const privacyNotification = document.getElementById('privacyNotification');
+            const acceptPrivacyBtn = document.getElementById('acceptPrivacy');
+            
+            // Check if user has already accepted privacy policy
+            if (localStorage.getItem('privacyAccepted') !== 'true') {
+                privacyNotification.style.display = 'flex';
+            } else {
+                privacyNotification.style.display = 'none';
+            }
+            
+            // Add event listener to accept button
+            if (acceptPrivacyBtn) {
+                acceptPrivacyBtn.addEventListener('click', function() {
+                    localStorage.setItem('privacyAccepted', 'true');
+                    privacyNotification.style.opacity = '0';
+                    setTimeout(() => {
+                        privacyNotification.style.display = 'none';
+                    }, 500);
+                });
+            }
+            
+            // Contact form redirect button
+            const contactRedirectBtn = document.getElementById('contactRedirectBtn');
+            if (contactRedirectBtn) {
+                contactRedirectBtn.addEventListener('click', async function() {
+                    // Check if user is authenticated before proceeding
+                    const { data, error } = await supabaseClient.auth.getSession();
+                    
+                    if (error || !data.session) {
+                        // User is not logged in, show notification and redirect to login
+                        showNeonNotification('Please sign up or login to access the consultation form', 'info');
+                        setTimeout(() => {
+                            window.location.href = 'login.html';
+                        }, 3000);
+                        return;
+                    }
+                    
+                    // User is logged in, redirect to Tally form
+                    window.open('https://tally.so/r/npzR7q', '_blank');
+                });
+            }
+            
+            // Logout functionality
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', async function(e) {
+                    e.preventDefault();
+                    
+                    try {
+                        const { error } = await supabaseClient.auth.signOut();
+                        if (error) throw error;
+                        
+                        // Show notification and update UI
+                        showNeonNotification('Successfully logged out');
+                        updateUIBasedOnAuth();
+                    } catch (error) {
+                        console.error('Logout error:', error);
+                        showNeonNotification('Error logging out', 'error');
+                    }
+                });
+            }
+            
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        });
+        
+        // Update UI based on authentication state without redirecting
+        async function updateUIBasedOnAuth() {
+            try {
+                const { data, error } = await supabaseClient.auth.getSession();
+                
+                if (error) {
+                    console.error('Auth state error:', error);
+                    return;
+                }
+                
+                const authButtons = document.getElementById('authButtons');
+                const userProfile = document.getElementById('userProfile');
+                const usernameDisplay = document.getElementById('usernameDisplay');
+                
+                if (data.session) {
+                    // User is logged in
+                    if (authButtons) authButtons.style.display = 'none';
+                    if (userProfile) userProfile.style.display = 'flex';
+                    
+                    // Get user data
+                    const { data: userData, error: userError } = await supabaseClient.auth.getUser();
+                    
+                    if (!userError && userData.user) {
+                        // Display user name
+                        const fullName = userData.user.user_metadata?.full_name || userData.user.email || 'User';
+                        if (usernameDisplay) usernameDisplay.textContent = fullName;
+                    }
+                } else {
+                    // User is not logged in
+                    if (authButtons) authButtons.style.display = 'flex';
+                    if (userProfile) userProfile.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Auth check error:', error);
+            }
+        }
+        
+        // Neon notification function
+        function showNeonNotification(message, type = 'info') {
+            // Remove any existing notification
+            const existingNotification = document.querySelector('.neon-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `neon-notification ${type}`;
+            
+            // Create content
+            const content = document.createElement('div');
+            content.className = 'notification-content';
+            content.textContent = message;
+            
+            // Create close button
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'notification-close';
+            closeBtn.innerHTML = '&times;';
+            closeBtn.addEventListener('click', () => {
+                notification.classList.add('fade-out');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            });
+            
+            // Assemble notification
+            notification.appendChild(content);
+            notification.appendChild(closeBtn);
+            
+            // Add to document
+            document.body.appendChild(notification);
+            
+            // Auto-close after 5 seconds
+            setTimeout(() => {
+                if (document.body.contains(notification)) {
+                    notification.classList.add('fade-out');
+                    setTimeout(() => {
+                        if (document.body.contains(notification)) {
+                            notification.remove();
+                        }
+                    }, 300);
+                }
+            }, 5000);
+        }
+    </script>
+    
+    <script src="main.js"></script>
+</body>
+</html>

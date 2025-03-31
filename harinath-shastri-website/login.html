@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harinath Shastri - Login</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="login-styles.css">
+    <!-- hCaptcha -->
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="login-body">
+    <!-- Animated Background -->
+    <div class="animated-background">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="clouds"></div>
+        <!-- Particles -->
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Back to Home Button -->
+    <div class="back-to-home">
+        <a href="index.html" class="neon-home-button">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+
+    <!-- Main Container -->
+    <div class="auth-container">
+        <h1 class="neon-text">Astrology Portal</h1>
+        
+        <div class="auth-form-container">
+            <!-- Auth Switcher -->
+            <div class="auth-switcher">
+                <div class="auth-option active" data-form="login-form">Login</div>
+                <div class="auth-option" data-form="signup-form">Sign Up</div>
+                <div class="slider"></div>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="login-email" placeholder="Email" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="button" class="toggle-password" data-target="login-password">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                
+                <div class="form-links">
+                    <a href="#" class="neon-link" id="forgot-password">Forgot Password?</a>
+                    <a href="#" class="neon-link" id="remember-me">Remember Me</a>
+                </div>
+                
+                <button type="submit" class="neon-button">Login</button>
+                
+                <div id="login-error" class="error-message"></div>
+            </form>
+            
+            <!-- Signup Form -->
+            <form id="signup-form" class="auth-form" style="display: none;">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="signup-name" placeholder="Full Name" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="signup-email" placeholder="Email" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="signup-password" placeholder="Password" required>
+                    <button type="button" class="toggle-password" data-target="signup-password">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                
+                <div class="captcha-container">
+                    <div class="h-captcha" data-sitekey="10000000-ffff-ffff-ffff-000000000001"></div>
+                </div>
+                
+                <button type="submit" class="neon-button">Sign Up</button>
+                
+                <div id="signup-error" class="error-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div class="notification-container" id="notification-container"></div>
+
+    <!-- Verify Email Modal -->
+    <div class="verify-container" id="verify-container" style="display: none;">
+        <div class="verify-box">
+            <h2 class="neon-text" style="font-size: 1.8rem;">Verify Your Email</h2>
+            <p>We've sent a verification link to <span id="verify-email"></span></p>
+            <p>Please check your inbox and click the link to verify your account.</p>
+            <div class="verify-buttons">
+                <button class="neon-button outline" id="verify-close">Close</button>
+                <button class="neon-button" id="verify-resend">Resend Email</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="login-script.js"></script>
+</body>
+</html>
